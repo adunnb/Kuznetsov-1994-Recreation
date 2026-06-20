@@ -7,12 +7,12 @@ Region-classification helpers for the Figure 4 bifurcation diagram in the
 
 The five dynamical regions are distinguished by:
 
-  * ``classify_local`` -- local information only (number of interior steady
+  * ``classify_local``: local information only (number of interior steady
     states + stability of the boundary equilibrium A). Returns 1, 2, 4, or
     3, where the returned 3 actually encodes the *unresolved* "region 3 or
     region 5" case, since those two regions are locally identical.
 
-  * ``in_region_5`` -- the global (heteroclinic) test that separates region
+  * ``in_region_5``: the global (heteroclinic) test that separates region
     3 from region 5 by shooting forward along A's unstable manifold and
     checking whether the trajectory escapes to the tumor-escape state D.
 
@@ -91,7 +91,7 @@ def classify_local(sigma, delta, rho=_RHO, eta=_ETA, mu=_MU,
     if n == 2 and A_stab:
         return 4   # D + total regression (tiny region)
     if n == 3 and not A_stab:
-        return 3   # bistability -- needs heteroclinic test
+        return 3   # bistability, needs heteroclinic test
     return 0       # boundary / transitional
 
 

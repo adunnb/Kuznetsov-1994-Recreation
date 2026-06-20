@@ -1,18 +1,18 @@
-# Kuznetsov et al. 1994 — Recreation
+# Kuznetsov et al. 1994: Recreation
 
 Computational recreation of:
 
 > Kuznetsov, Makalkin, Taylor & Perelson (1994),
 > *Nonlinear Dynamics of Immunogenic Tumors: Parameter Estimation and
-> Global Bifurcation Analysis*, Bulletin of Mathematical Biology 56(2), 295–321.
+> Global Bifurcation Analysis*, Bulletin of Mathematical Biology 56(2), 295-321.
 
 ## Layout
 
 | File | Contents |
 |------|----------|
 | `Kuznetsov_Figure_Plots.ipynb` | The notebook. Run top to bottom to reproduce every figure. Its first code cell imports everything from the three modules below. |
-| `kuznetsov_model.py` | Dimensional model, parameters, experimental data, nondimensionalization, and the integration safety event. The single source of truth for all parameter values. |
-| `phase_portrait.py` | `PhasePortraitPlotter` — shared phase-portrait machinery (fixed points, manifolds, streamplots, basin boundaries, trajectories, panel assembly) used by Figures 3, 5, 6, 8 and 9. |
+| `kuznetsov_model.py` | Dimensional model, parameters, experimental data, nondimensionalization, and the integration safety event. All parameter values are defined here, nowhere else. |
+| `phase_portrait.py` | `PhasePortraitPlotter`, shared phase-portrait machinery (fixed points, manifolds, streamplots, basin boundaries, trajectories, panel assembly) used by Figures 3, 5, 6, 8 and 9. |
 | `fig4_helpers.py` | Region-classification helpers for the Figure 4 bifurcation diagram (`classify_local`, `in_region_5`, and supporting functions). |
 
 The four files must sit in the same directory so the notebook's imports
@@ -58,6 +58,6 @@ without relying on global state.
 - scipy
 - matplotlib
 
-Figure 4 (`in_region_5` over the grid) is the slow one — roughly 5–15 minutes
+Figure 4 (`in_region_5` over the grid) is the slow one, roughly 5-15 minutes
 depending on grid resolution. All other figures render in seconds to a couple
 of minutes.
